@@ -1,0 +1,182 @@
+sha,author,date,message,total_changes
+bc513bc25c1af5b79c7647f9e96593ae01f251e3,Md. Abu Taher,2021-06-15 09:14:35+00:00,Merge pull request #72 from charliedua/#71,2
+f0b319da159957c47e503a3a6ef6453b24f2c4f9,Md. Abu Taher,2021-06-15 09:13:56+00:00,Merge pull request #61 from sjsakib/feat/localstorage,61
+35c92104170f23eb1538e79093c8f9b88113887f,Md. Abu Taher,2021-06-15 09:13:44+00:00,Merge pull request #67 from minibugdev/master,222
+0619fc17bd68a173e85e60e55c9b9678d8b03acd,Md. Abu Taher,2021-06-15 09:13:33+00:00,Merge pull request #75 from Pysis868/master,0
+1f568e7589e6ab0595ff557f23a3738d0b66be59,Pysis868,2021-04-27 17:59:34+00:00,Added troublesome file back to tree with correct path without trailing space.,6
+0cb4a8e93334c14459a6d327750afa2e04f01f44,Pysis868,2021-04-27 17:57:39+00:00,Removing file with invalid path for git.,6
+f4c2fe95bed45dd39a75f57359f915e374a59bf2,Anmol Dua,2021-02-27 01:56:32+00:00,changed double quote to single quote,2
+dcdbcbf10953d5a308f6c04b074a106b14d59594,Anmol Dua,2021-02-27 01:47:45+00:00,fix #71,2
+15432be28856bb7a90ea0a8d448f795fc0303bc4,Teeranai.P,2021-01-25 14:23:18+00:00,Fix Codacy,2
+6c1fe3a07833bb3508b931c8da79694d257b70e9,Teeranai.P,2021-01-25 13:22:29+00:00,Allow to search components (#1),220
+4c59ef64ba5f91da325479c548f8ff4336b2ff62,sjsakib,2020-11-19 13:35:06+00:00,"fix: removed unnecessary useMemo, added save helper",68
+9c53bf23433b8c5007d9825f2beca655a3767509,sjsakib,2020-11-19 13:29:30+00:00,fix: do not set data,50
+a59486a1bc72c7543728d3b5e2e116aa61495efa,sjsakib,2020-11-19 10:04:19+00:00,fix: useMemo to prevent re-render of whole editor,49
+7cb45d167f5ee427ae2b153d7a5fd4e804de6e75,sjsakib,2020-11-19 09:19:43+00:00,"fix: provide data with context, and updated on `toBack` and `toFront`",110
+bbe98d4d53a74b8f5cac2b2775f9b698e8842e1a,sjsakib,2020-11-18 13:59:38+00:00,feat: added saving to localStorage,26
+8e0c0e73b96051b4a9aca4bc3ef033831ecda466,Md. Abu Taher,2020-11-09 18:15:49+00:00,Update README.md,1
+5845c82a9da6d28f80e5d82ed135077cd0ce0aa2,Md. Abu Taher,2020-11-02 16:17:09+00:00,"Merge pull request #44 from omgovich/improvement/react-colorful
+
+Replace rc-color-picker with react-colorful",217
+ab8fdb9a4c75a3bcc5bdc4c2c768e6895aad7a95,Md. Abu Taher,2020-10-26 13:08:35+00:00,"Merge pull request #56 from rzhekova/utils-tests
+
+adds tests for upperFirst and proptypes for DetailForm",22
+8f453c101f4d2c58fce2fa512a76735ca359132d,Md. Abu Taher,2020-10-26 13:08:26+00:00,"Merge pull request #57 from evaldobarbosa/dockercompose
+
+Docker compose",36
+c4b975c12390f95c63557e7559906b1d3b9d63c5,Evaldo Barbosa,2020-10-05 16:52:20+00:00,making installation easy with a docker-compose.yml,19
+81ca6baffdd0c0b487fe4c94ca884db04f8d975c,Evaldo Barbosa,2020-10-05 16:12:23+00:00,Merge branch 'master' of https://github.com/debarshri/wireflow,17
+18f625f636f4db9ed642cc1b8e8544f03d1d2e17,debarshibasak,2020-10-04 21:36:48+00:00,added yarn before yarn install,1
+1914c50248a902d417f2db666f6b782c634d50be,Rosie Zhekova,2020-10-03 22:09:30+00:00,adds tests for upperFirst and proptypes for DetailForm,22
+b0284daf28b34612e1d96a9e98849007f6a612ef,debarshibasak,2020-10-01 10:54:28+00:00,Application is now dockerized,16
+544afdb8fb61a358c9e4cfef348e09ef62f4f48d,Md. Abu Taher,2020-09-30 06:30:04+00:00,"Merge pull request #51 from timvisee/fix-firefox-select
+
+Fix selection issue in Firefox preventing drag and drop of items",2
+f7e5d08af850594c39b729ce9b3328504affbfcf,Md. Abu Taher,2020-09-29 16:14:43+00:00,"Merge pull request #43 from arifulbgt4/fix/pwa-icons
+
+Fix/pwa icons",48
+33c3867ab36a1b89aa5238148c22f2ecbe24630d,timvisee,2020-09-29 16:07:03+00:00,"Disable pointer events on sidebar images, fix image dragging in Firefox
+
+See https://github.com/vanila-io/wireflow/issues/46#issuecomment-700808215",1
+4b97b90b927cb410126e040ce67a86588bf946ab,Md. Abu Taher,2020-09-29 16:00:45+00:00,Update README.md,2
+458c8f7a4767ed57a7d4e15521a98c91bce82120,timvisee,2020-09-29 15:32:44+00:00,"Fix selection issue in Firefox preventing drag and drop of items
+
+Fixes https://github.com/vanila-io/wireflow/issues/46
+
+See https://github.com/vanila-io/wireflow/issues/46#issuecomment-700784528",1
+fb17c5eac5b2c4a5306939649eadbea937700ce0,Vlad Shilov,2020-09-14 21:10:21+00:00,Install the latest react-colorful,10
+97bc3007a8ebdf91623387b5e92932d779c7e9b4,Vlad Shilov,2020-09-14 19:21:19+00:00,Replace rc-color-picker with react-colorful,217
+8683e00896cb4e6b987272c1843e38343a5b54bb,arifulbgt4,2020-08-10 13:18:53+00:00,chore(typo): update PWA manifest icons,10
+100f07e3d22d0573ccbf87f5cc1fdd58e3086536,arifulbgt4,2020-08-10 13:17:04+00:00,chore(replace): favicon icon,34
+bb448de1384f131f92d3f8f4f7c18c70bf79bb10,arifulbgt4,2020-08-10 12:51:35+00:00,fix:  PWA name &  short_name,4
+af7cf8eb82849aa004a8c8bfce186ce3ac42c804,Md. Abu Taher,2020-07-12 04:28:21+00:00,Update README.md,14
+4251e6c190980cc007add66c1c07df010a33b658,Md Abu Taher,2020-07-12 04:22:30+00:00,chore: update package.json,2
+445a1066c19a053429fb47c58e35cda1f7307499,Md Abu Taher,2020-07-12 04:19:52+00:00,chore: add stale bot,9
+c124e4a920a68696197a9785d3f47c172ecda53e,Md Abu Taher,2020-07-12 04:14:20+00:00,chore: add stale bot,0
+ef4bc0c01dc0906b5f62e965aae507d6be0788fb,Md Abu Taher,2020-07-12 04:13:41+00:00,chore: add stale bot,17
+0cbf57feab21d8b3488c43de1d256b8011fe7437,Md Abu Taher,2020-07-12 04:07:19+00:00,fix: package.json,29
+a5be05106286d925006c30f104e38eca75cd32ff,Md Abu Taher,2020-07-12 04:05:38+00:00,fix: package.json,3104
+bcd988134364c763d51ecdab38725ec92898b16b,Md Abu Taher,2020-07-12 04:02:35+00:00,chore: add netlify badge,1
+1ce56b9dd792aebdb43802e3eac30f464eb3d934,Md Abu Taher,2020-07-12 03:54:19+00:00,chore: migrate wireflow2 to wireflow,42088
+f84df286540e90d5a98482f6dbd2779b17bb2106,Md. Abu Taher,2020-05-13 14:20:04+00:00,Update README.md,2
+0418ee1d330415ff9a8736561efb3cbf6a402474,Md. Abu Taher,2020-03-25 13:48:50+00:00,Update README.md,2
+65f261a21ee757b398657566edbb8b8bae4d2789,Md. Abu Taher,2020-03-25 13:47:37+00:00,Update README.md,2
+a541f1ff21d7bc15f3222e32e5e1929f273afa74,Md. Abu Taher,2019-08-02 04:25:53+00:00,"Merge pull request #31 from xet7/master
+
+Upgraded wireflow to Meteor 1.8.1 etc.",8312
+9fea6b2df2983f42b5d62b747bbc9a0f66f089fa,Lauri Ojansivu,2019-08-01 22:54:55+00:00,"Added warning:
+""AWS credentials for saving to S3 are not defined at settings.json, so saving does not work.""",107
+1b920a02e7e7a7e5ee3224b15835bb5689fd8ca6,Lauri Ojansivu,2019-08-01 22:26:28+00:00,Update link to Wireflow Community Chat.,2
+ffb71b979eae3d34d3c8da726d946f254427a028,Lauri Ojansivu,2019-08-01 22:23:26+00:00,Update year in license.,2
+5e351b0772feac61de9e2d67e7309b0fc71892a9,Lauri Ojansivu,2019-08-01 22:22:06+00:00,Update to node 8.16.0,5
+a84b8d39b8ef79500d58fa86e0c234a8edfed498,Lauri Ojansivu,2019-08-01 22:18:53+00:00,"Removed yarn.lock, because yarn did warn about mixing different
+incompatible package managers like npm and yarn.
+Using yarn did not work.",3758
+acd278ca5f511b25860e2368f536764687cd6e2b,Lauri Ojansivu,2019-08-01 22:05:38+00:00,Removed single quotes that I added just for testing earlier.,6
+7ccaa14d0fdc88888df3e69a035fb466b3605cf9,Lauri Ojansivu,2019-08-01 22:01:42+00:00,Reorder packages.,4
+cc7440be8bf72f2a350f5b911f7ffb4607ce3fd6,Lauri Ojansivu,2019-08-01 21:56:00+00:00,Restore original editorconfig and eslint settings.,20
+11ca48a0e80e516973ba05836c10f32796a7c28c,Lauri Ojansivu,2019-08-01 21:06:56+00:00,Removed .eslintignore,1
+6ea832b9b8cc1b487ecab375a4ac8efe580c77fa,Lauri Ojansivu,2019-08-01 21:05:03+00:00,Removed prettier.,21
+2838b26d47d1987b4345b079719870dbd8333274,Lauri Ojansivu,2019-08-01 21:03:51+00:00,Removed extra file.,163
+80e4067925debd37343f1be4eb5cf3b684d638ec,Lauri Ojansivu,2019-08-01 20:53:34+00:00,Fix some lint errors. Add prettier.,205
+a599c43cc5c48235790071cd8125f8838f15806d,Lauri Ojansivu,2019-08-01 20:34:28+00:00,"- Upgraded wireflow to Meteor 1.8.1.
+- Commented out Slingshot because got error that is described in this pull request code.
+
+Thanks to xet7 !
+
+Closes #2",4468
+ac4640fbb0c4ff48a12496d20fe866326a2582b8,Md. Abu Taher,2018-10-26 05:09:12+00:00,"Merge pull request #25 from vanila-io/lint
+
+Lint",4722
+92fb090d0e10a230877d65f21e01d0a1285d4ae1,entrptaher@gmail.com,2018-10-26 05:07:41+00:00,Lint,4722
+c8016f99649178d48e6696776b6ff0812abcf0a1,jelenajjo,2018-10-26 04:48:32+00:00,Use node 8.9.1 for deploy,2
+17213398e5b7d3201e501baafe767cfad3635c01,entrptaher@gmail.com,2018-10-26 04:38:32+00:00,Use 8.5.0 by default,2
+a8eac26f995d96ad91c69c4d5b9990ccf13e3251,entrptaher@gmail.com,2018-10-26 04:37:07+00:00,Add custom admin from env,718
+93c1581468ac668280d9e469ed9802b4f3db11f0,entrptaher@gmail.com,2018-10-26 04:32:13+00:00,Merge branch 'extra' of https://github.com/vanila-io/wireflow,42
+65f6780ba526ec631027238a31f5e283f58c7636,jelenajjo,2018-10-26 04:26:03+00:00,live development from server,45
+6fc6318b6cf6921aeb596efa1c9763685d5dfa9f,entrptaher@gmail.com,2018-10-25 15:52:39+00:00,Disable build minification,2
+35af597f01ca355e767102b1b345407e0282cfd3,entrptaher@gmail.com,2018-10-25 15:48:30+00:00,NVM error,1
+5c4159ad0a02e41008ce8b34b3a653f49d20e14d,entrptaher@gmail.com,2018-10-25 15:44:44+00:00,Package Problem,4557
+099505ffc356d8cbebc08762a45fb34258b30d8f,Md. Abu Taher,2018-10-25 14:17:31+00:00,"Merge pull request #24 from vanila-io/quickfix
+
+Quickfix",8654
+1e04cc43de080175999a8c61dc669ae5f6758c32,Md. Abu Taher,2018-10-25 14:17:14+00:00,"Merge pull request #20 from opencollective/opencollective
+
+Activating Open Collective",32
+5a34644c9b06e082f53bf0e06104dbe6598db54f,entrptaher@gmail.com,2018-10-25 14:05:49+00:00,Yarn by default,517
+f35f9f80cf9f27a7d9a1324031a80654845e9011,entrptaher@gmail.com,2018-10-25 13:58:50+00:00,Disable Users on socket,8
+97c73811c23da3a29cb26decdd7facfe3d0e35c5,entrptaher@gmail.com,2018-10-25 13:54:51+00:00,Eslint Fixes,104
+41556092a8cb68884d063081f2dcca9a1e10e277,entrptaher@gmail.com,2018-10-25 13:48:03+00:00,Deny access without admin account,8609
+7d89ab530ee7e916799bbd051f9abe1a4202fdca,Md. Abu Taher,2018-09-15 02:31:31+00:00,"Merge pull request #22 from vanila-io/shtefcs-patch-1
+
+Update README.md",2
+04797a0deca720acf4826903c8bd5609016d1025,Stefan Smiljkovic,2018-09-14 20:52:59+00:00,Update README.md,2
+bf34202a662ee924a9c70d144dc4bc93a92a5382,Jess,2018-03-03 03:00:55+00:00,Added call to donate after npm install (optional),10
+27c7b849c3bcfb1dd4d98dd3ea1bed2cdf628ea9,Jess,2018-03-03 03:00:54+00:00,Added backers and sponsors on the README,22
+8da90e4122c548ea423fbafcd55f90ad46f177af,Md. Abu Taher,2017-12-09 12:13:53+00:00,"Merge pull request #19 from badis/wireflow-br
+
+Upgrade enzyme to use react 16",42
+adfeaef40b4b40f8ae498e26b98574a0d59f47ce,Badis Merabet,2017-12-09 11:14:53+00:00,Upgrade testing tools to be compatible with react 16,42
+0859a9ad7c00398e85036ceb37f323d2ec11c635,Md. Abu Taher,2017-12-09 03:47:20+00:00,"Merge pull request #17 from badis/wireflow-br
+
+Remove react-komposer package",4124
+9beb216a9367b6ec387a55b7750bcdfbd0aee327,Badis Merabet,2017-12-08 19:50:33+00:00,Fix ESLint errors and warnings,4030
+b2dbc7b98070ff8d65305cb9dc75732e644c8f6b,Badis Merabet,2017-12-08 18:59:45+00:00,Remove react-komposer package (instead use react-meteor-data),94
+04e3d6ce4ca85793fb152734fa12c292d0b6fc07,Md. Abu Taher,2017-12-08 18:10:53+00:00,"Merge pull request #15 from entrptaher/master
+
+Upgrade to React 16",3783
+4be1ec8db6fcb1698b417631886bd351f811d0f6,Md. Abu Taher,2017-12-08 18:10:29+00:00,Merge branch 'master' into master,0
+85a30218c6c4c8e1e35c993f6699a62078b41c01,Md. Abu Taher,2017-12-08 18:09:26+00:00,Merge branch 'master' into master,860
+1e05c12260896da8cc843cb94514182b9e0e5436,Md. Abu Taher,2017-12-08 18:05:35+00:00,"Merge pull request #16 from badis/wireflow-br
+
+Use withTracker on flowdesigner.js",866
+c37ba2998a9f9ae7d454a11f3d260788a6b529ab,Badis Merabet,2017-12-08 16:04:38+00:00,Use withTracker on flowdesigner.js + Fix issues and refactor code.,866
+d6c906ce23129a3d8dc18cf7b624e172ef4f6c09,entrptaher@gmail.com,2017-12-08 14:57:47+00:00,Drop in replacement update: react-komposer,147
+a808302d40863ae48395974fa04ca2b3a7b6d91d,entrptaher@gmail.com,2017-12-08 14:49:14+00:00,Suppress more errors,72
+5034924032d745d24f67f2b5ed5c1f0fe1e51867,entrptaher@gmail.com,2017-12-08 14:28:04+00:00,Updated to React v16 with backward compability: PropTypes and createClass,3674
+f604673249359276afe769403c6505c8e96c09b4,Md. Abu Taher,2017-12-08 03:37:55+00:00,"Merge pull request #14 from badis/master
+
+Use withTracker instead of composeWithTracker",621
+65c2e2c0d534b60f705dcdabd30dfb1822061c77,Badis Merabet,2017-12-07 19:49:44+00:00,Merge branch 'wireflow-br',621
+c5437ad16c1e30b1f341bf6a067c0f42769477d7,Badis Merabet,2017-12-07 19:41:39+00:00,Use withTracker instead of composeWithTracker,191
+8f588c006ff95efa70f102f581362a5cd0b424e6,Badis Merabet,2017-12-07 17:16:26+00:00,Fix ESLint warning,430
+84f8991979fdc525f8fb871288526cd9f2e273c9,Md. Abu Taher,2017-12-07 15:36:19+00:00,"Merge pull request #13 from badis/wireflow-br
+
+Setup testing tools + Enhance code style.",1795
+d5f6578c3c7a011baab42a64f83d0cbce236fcd9,Badis Merabet,2017-12-07 15:01:47+00:00,Fix some ESLint errors and warning,1416
+4c8179d8bf62e1acb33012ec2bc97106dde93ee7,Badis Merabet,2017-12-07 14:20:56+00:00,Setup testing tools,383
+5f5d5a0e3a4fd008044bab63d130fa84d1d0d5c6,Md. Abu Taher,2017-12-07 01:27:59+00:00,"Merge pull request #11 from badis/badis-br
+
+Refactor project structure + Upgrade packages to recent versions",1126
+11da989c65ae2a879297e152e7c97d60e2c91a07,Badis Merabet,2017-12-07 00:37:45+00:00,Move stylesheets to imports/ui/ folder,2
+93e442eafaabdfd74f04ef40ef0aced1e6229a0e,Badis Merabet,2017-12-06 23:45:07+00:00,Upgrade packages to more recent versions,617
+0bad8d8dbb68e9125af58ee4dd6779a247fb4eba,Badis Merabet,2017-12-06 22:32:31+00:00,Setup ESLint,676
+6cbf255b158071ca5185d70be6599a49740d816d,Badis Merabet,2017-12-06 22:13:08+00:00,Refactor project structure,1
+d58e207c18ace9bd38f4c677cfc24100a145145a,Stefan Smiljkovic,2017-11-29 11:22:40+00:00,open collective badge,2
+18745d1a547bb0e4a38f3a3b39723ec6ce377362,Md. Abu Taher,2017-11-27 04:00:40+00:00,Update README.md,46
+bc019488f8340e8e37c7901262e1d0ae0ff25f70,Md. Abu Taher,2017-11-27 03:37:25+00:00,"Merge pull request #8 from entrptaher/master
+
+Updated Readme",6810
+f07549da3a8c62c7a332e2efc86699d9b87d0b68,entrptaher,2017-11-27 03:35:20+00:00,Lint lines,6
+e6175fa1b1e08421aea5bb49775868815a9d6bb3,entrptaher,2017-11-27 03:31:50+00:00,Added windows installation instructions,14
+2a6e1922512035d8c8846f302898151ea50c1797,entrptaher,2017-11-27 03:29:19+00:00,Added windows installation instructions,24
+ba5c6d304e725a80019be1f20909c8fa74542c9e,entrptaher@gmail.com,2017-11-26 15:01:33+00:00,Updating Node versions,6768
+c0edc51d4a596183a8d560c1e2b8903f2cce6642,entrptaher@gmail.com,2017-11-25 22:17:01+00:00,Updating Readme,28
+0aa65ba2dd7fcafd37d3b3d557ab0f9e74cf6020,Md. Abu Taher,2017-11-25 22:04:47+00:00,"Merge pull request #4 from entrptaher/master
+
+Version updates",274
+3ca4d6d05ef1f2e7200e2fb6f0b29d1538293650,entrptaher@gmail.com,2017-11-25 21:57:40+00:00,Version updates,274
+073a4b03c8faf799f8b7be317b3165a380faa4ff,Stefan Smiljkovic,2017-11-25 21:04:52+00:00,Update README.md,4
+66601375dc82d1d5eff7577762c822d5d1b045bb,Stefan Smiljkovic,2017-11-25 21:03:45+00:00,updating read me,6
+292c724f0b140b8351d0ad76cbe9c84f5f06f1fd,Stefan Smiljkovic,2017-11-22 20:15:40+00:00,Update README.md,1
+167ba16919f1ca0b11c9a894fb0544d6e6f4d126,Stefan Smiljkovic,2017-11-22 20:14:52+00:00,Added screenshot and YT video,3
+0d0e88e648fd9aabc7b8cb8f4511d6a71f0fda2d,Stefan Smiljkovic,2017-11-22 03:29:35+00:00,Update README.md,2
+0ee28cd0a3855e893d854980d3e8278df5bf657f,Stefan Smiljkovic,2017-11-22 01:47:09+00:00,link to https://chat.vanila.io/channel/wireflow,2
+307059ff85b51661824db88bc7879ca1a20bc3db,Stefan Smiljkovic,2017-11-22 01:03:38+00:00,adding link to blog post and vanila chat,5
+2d3b65b7eb6eedcd1bb7df6fe5ecba52c55adac4,Lauri Ojansivu,2017-11-20 00:28:56+00:00,Add link Open Hub,2
+7e0faa386e9d4e343ba4a654af67a18b93570152,Lauri Ojansivu,2017-11-20 00:15:51+00:00,Link to https,2
+583ef1491781e06256c3f8ece51d854edbd90dc9,Lauri Ojansivu,2017-11-20 00:13:40+00:00,Update readme layout.,39
+c3adb163e2655c02b8c19ba7dc557c26d5e9bc93,Lauri Ojansivu,2017-11-20 00:03:52+00:00,Add MIT License.,21
+0b7a09b7d5f120fa2186e52455c1e5201fa843af,entrptaher@gmail.com,2017-11-19 18:23:35+00:00,Build Optimization,7
+5fb3b24739b749640dd69affc17fc6bbcacebbf4,entrptaher@gmail.com,2017-11-19 17:47:17+00:00,Build Fixes,21
+7640a6030cf85c196aeec6b2d1b73f3a1c99c799,entrptaher@gmail.com,2017-11-19 17:35:38+00:00,Initial Commit,20090
