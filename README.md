@@ -28,4 +28,4 @@ A mineração de repositórios oferece uma maneira de analisar grandes quantidad
 1. **Clone o repositório:**
 
    ```bash
-   git clone [https://github.com/MatheusRodrigues-Dev/Mineracao-Repositorio.git]
+   git clone https://github.com/MatheusRodrigues-Dev/Mineracao-Repositorio.git
