@@ -1,11 +1,30 @@
 from github import Github
 import pandas as pd
 import time
+import os
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-# Autenticação na API do GitHub
-g = Github("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")
+# Lista de tokens do GitHub
+tokens = [
+    "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",
+    "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",
+]
+
+# Variável para manter o índice do token atual
+current_token_index = 0
+
+# Função para alternar o token
+
+
+def get_next_token():
+    global current_token_index
+    current_token_index = (current_token_index + 1) % len(tokens)
+    return tokens[current_token_index]
+
+
+# Autenticação na API do GitHub com o primeiro token
+g = Github(tokens[current_token_index])
 
 ux_labels = [
     # Termos gerais
@@ -38,19 +57,34 @@ ux_labels = [
     "user experience design", "ux engineering", "interaction designer", "ux architect", "human-centered innovation",
     "ux strategy", "ux design process", "ux best practices", "ux design principles", "ux design tools"
 ]
-# Lista de termos UX para busca
-# ux_labels = ["ux", "user experience", "usability", "wireflow", "wireframe", "MVP"]
+
+# Função para criar diretórios, caso não existam
+
+
+def create_directories():
+    if not os.path.exists('../Database'):
+        os.makedirs('../Database')
+    if not os.path.exists('../Image'):
+        os.makedirs('../Image')
+
+
+create_directories()
+
 
 def search_ux_repositories():
     repos_data = []
+    global g
 
     for label in ux_labels:
         search_query = f"{label} in:description"
-        print(f"Buscando repositorios para: {label}")
+        print(f"Buscando repositórios para: {label}")
 
-        try:
-            for page in range(1, 11):  # Ajuste o número de páginas conforme necessário
-                repos = g.search_repositories(query=search_query, sort="stars", order="desc", page=page)
+        attempt = 0  # Contador de tentativas
+
+        while attempt < len(tokens):  # Tentativas limitadas ao número de tokens
+            try:
+                repos = g.search_repositories(
+                    query=search_query, sort="stars", order="desc")
 
                 for repo in repos:
                     repo_data = {
@@ -65,31 +99,44 @@ def search_ux_repositories():
                     }
                     repos_data.append(repo_data)
 
-                time.sleep(1)  # Para evitar limite de taxa da API
+                break  # Se a busca for bem-sucedida, saia do loop de tentativas
 
-        except Exception as e:
-            print(f"Erro ao buscar repositorios para o termo {label}: {e}")
+            except Exception as e:
+                print(f"Erro ao buscar repositórios para o termo {label}: {e}")
+                print("Tentando outro token...")
+                g = Github(get_next_token())
+                attempt += 1
+                time.sleep(1)
+                continue
 
-    # Salvar os dados em um arquivo CSV
-    df = pd.DataFrame(repos_data)
-    df.to_csv('repositorios_ux.csv', index=False)
-    print("Coleta de repositorios concluída e salva no arquivo 'repositorios_ux.csv'.")
+        time.sleep(1)  # Para evitar limite de taxa da API
+
+    # Remover duplicatas
+    df = pd.DataFrame(repos_data).drop_duplicates(subset='name')
+    df.to_csv('../Database/repositorios_ux.csv',
+              index=False, sep=',', decimal=',')
+    print("Coleta de repositórios concluída e salva no arquivo '../Database/repositorios_ux.csv'.")
+
 
 search_ux_repositories()
 
+
 def filter_repositories(input_csv):
-    # Carregar os repositorios coletados
+    # Carregar os repositórios coletados
     df = pd.read_csv(input_csv)
 
     # Aplicar os critérios de filtragem
     filtered_df = df[(df['stars'] >= 5) & (df['forks'] >= 5)]
-    print(f"{len(filtered_df)} repositorios encontrados após a filtragem.")
+    print(f"{len(filtered_df)} repositórios encontrados após a filtragem.")
 
-    # Salvar os repositorios filtrados em um novo CSV
-    filtered_df.to_csv('repositorios_ux_filtrados.csv', index=False)
-    print("repositorios filtrados salvos em 'repositorios_ux_filtrados.csv'.")
+    # Salvar os repositórios filtrados em um novo CSV na pasta Database
+    filtered_df.to_csv(
+        '../Database/repositorios_ux_filtrados.csv', index=False)
+    print("Repositórios filtrados salvos em '../Database/repositorios_ux_filtrados.csv'.")
 
-filter_repositories('repositorios_ux.csv')
+
+filter_repositories('../Database/repositorios_ux.csv')
+
 
 def categorize_repository(description):
     keywords_tool = ["tool", "framework", "library", "sdk", "API"]
@@ -107,12 +154,16 @@ def categorize_repository(description):
 
     return "Uncategorized"
 
+
 # Aplicar categorização
-df = pd.read_csv('repositorios_ux_filtrados.csv')
+df = pd.read_csv('../Database/repositorios_ux_filtrados.csv')
 df['category'] = df['description'].apply(categorize_repository)
 
-df.to_csv('repositorios_categorizados.csv', index=False)
-print("Categorização concluída e salva em 'repositorios_categorizados.csv'.")
+# Salvar o CSV categorizado na pasta Database
+df.to_csv('../Database/repositorios_categorizados.csv',
+          index=False, sep=',', decimal=',')
+print("Categorização concluída e salva em '../Database/repositorios_categorizados.csv'.")
+
 
 def plot_stars_distribution(csv_file):
     df = pd.read_csv(csv_file)
@@ -120,9 +171,13 @@ def plot_stars_distribution(csv_file):
     plt.figure(figsize=(10, 6))
     sns.histplot(df['stars'], bins=50, kde=True)
 
-    plt.title('Distribuição de Stars nos repositorios de UX')
+    plt.title('Distribuição de Stars nos repositórios de UX')
     plt.xlabel('Stars')
     plt.ylabel('Frequência')
+
+    # Salvar o gráfico na pasta Image
+    plt.savefig('../Image/distribuicao_stars.png')
     plt.show()
 
-plot_stars_distribution('repositorios_categorizados.csv')
+
+plot_stars_distribution('../Database/repositorios_categorizados.csv')
