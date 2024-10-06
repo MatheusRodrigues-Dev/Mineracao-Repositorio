@@ -26,38 +26,39 @@ def get_next_token():
 # Autenticação na API do GitHub com o primeiro token
 g = Github(tokens[current_token_index])
 
-ux_labels = [
-    # Termos gerais
-    "ux", "user experience", "usability", "ui", "user interface", "design", "interaction design",
-    "human factors", "interaction", "visual design", "experience strategy", "service design",
-    "human-centered", "design principles", "design language", "branding", "identity design",
+# ux_labels = [
+#     # Termos gerais
+#     "ux", "user experience", "usability", "ui", "user interface", "design", "interaction design",
+#     "human factors", "interaction", "visual design", "experience strategy", "service design",
+#     "human-centered", "design principles", "design language", "branding", "identity design",
 
-    # Wireframes e fluxos
-    "wireflow", "wireframe", "mockup", "prototype", "user flow", "user journey",
-    "storybook", "sitemap", "user persona", "user scenario", "task flow",
-    "information architecture", "interaction flow", "design specification", "style guide",
+#     # Wireframes e fluxos
+#     "wireflow", "wireframe", "mockup", "prototype", "user flow", "user journey",
+#     "storybook", "sitemap", "user persona", "user scenario", "task flow",
+#     "information architecture", "interaction flow", "design specification", "style guide",
 
-    # Pesquisa e análise
-    "user research", "usability testing", "a11y", "accessibility", "heuristics", "information architecture",
-    "contextual inquiry", "user interview", "survey", "analytics", "feedback",
-    "user testing", "A/B testing", "multivariate testing", "user feedback", "net promoter score",
+#     # Pesquisa e análise
+#     "user research", "usability testing", "a11y", "accessibility", "heuristics", "information architecture",
+#     "contextual inquiry", "user interview", "survey", "analytics", "feedback",
+#     "user testing", "A/B testing", "multivariate testing", "user feedback", "net promoter score",
 
-    # Métodos e ferramentas
-    "design thinking", "agile", "lean ux", "figma", "sketch", "adobe xd", "prototyping tools",
-    "co-design", "participatory design", "design systems", "invision", "axure", "justinmind",
-    "ux writing", "content strategy", "design ops", "service design tools", "ux metrics",
+#     # Métodos e ferramentas
+#     "design thinking", "agile", "lean ux", "figma", "sketch", "adobe xd", "prototyping tools",
+#     "co-design", "participatory design", "design systems", "invision", "axure", "justinmind",
+#     "ux writing", "content strategy", "design ops", "service design tools", "ux metrics",
 
-    # Conceitos relacionados
-    "human-computer interaction", "user-centered design", "customer experience", "cx", "experience design",
-    "emotional design", "persuasive design", "gamification", "information design", "service blueprint",
-    "design innovation", "innovation design", "strategic design", "systemic design", "transitional design",
+#     # Conceitos relacionados
+#     "human-computer interaction", "user-centered design", "customer experience", "cx", "experience design",
+#     "emotional design", "persuasive design", "gamification", "information design", "service blueprint",
+#     "design innovation", "innovation design", "strategic design", "systemic design", "transitional design",
 
-    # Variações em inglês
-    "usercentereddesign", "uxdesign", "uxer", "iux", "uxui", "uiux",
-    "user experience design", "ux engineering", "interaction designer", "ux architect", "human-centered innovation",
-    "ux strategy", "ux design process", "ux best practices", "ux design principles", "ux design tools"
-]
+#     # Variações em inglês
+#     "usercentereddesign", "uxdesign", "uxer", "iux", "uxui", "uiux",
+#     "user experience design", "ux engineering", "interaction designer", "ux architect", "human-centered innovation",
+#     "ux strategy", "ux design process", "ux best practices", "ux design principles", "ux design tools"
+# ]
 
+ux_labels = ["ux", "user experience", "usability", "wireflow", "wireframe", "MVP"]
 # Função para criar diretórios, caso não existam
 
 
