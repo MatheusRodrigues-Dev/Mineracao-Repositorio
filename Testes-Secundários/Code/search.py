@@ -25,6 +25,18 @@ def get_next_token():
 
 # Autenticação na API do GitHub com o primeiro token
 g = Github(tokens[current_token_index])
+ux_labels = [
+    "Experiência do Cliente",  "Customer Experience",
+    "Usabilidade",  "Usability",
+    "Interação com o Usuário",  "User Interaction",
+    "Design Centrado no Usuário",  "User-Centered Design",
+    "Experiência Interativa",  "Interactive Experience",
+    "Experiência Digital",  "Digital Experience",
+    "Interface do Usuário",  "User Interface",
+    "Navegabilidade",  "Navigability",
+    "Fluidez de Interação",  "Interaction Fluidity",
+    "Satisfação do Usuário",  "User Satisfaction"
+]
 
 # ux_labels = [
 #     # Termos gerais
@@ -58,7 +70,7 @@ g = Github(tokens[current_token_index])
 #     "ux strategy", "ux design process", "ux best practices", "ux design principles", "ux design tools"
 # ]
 
-ux_labels = ["ux", "user experience", "usability", "wireflow", "wireframe", "MVP"]
+# ux_labels = ["ux", "user experience", "usability", "wireflow", "wireframe", "MVP"]
 # Função para criar diretórios, caso não existam
 
 
@@ -131,8 +143,7 @@ def filter_repositories(input_csv):
     print(f"{len(filtered_df)} repositórios encontrados após a filtragem.")
 
     # Salvar os repositórios filtrados em um novo CSV na pasta Database
-    filtered_df.to_csv(
-        '../Database/repositorios_ux_filtrados.csv', index=False)
+    filtered_df.to_csv('../Database/repositorios_ux_filtrados.csv', index=False)
     print("Repositórios filtrados salvos em '../Database/repositorios_ux_filtrados.csv'.")
 
 
@@ -161,8 +172,7 @@ df = pd.read_csv('../Database/repositorios_ux_filtrados.csv')
 df['category'] = df['description'].apply(categorize_repository)
 
 # Salvar o CSV categorizado na pasta Database
-df.to_csv('../Database/repositorios_categorizados.csv',
-          index=False, sep=',', decimal=',')
+df.to_csv('../Database/repositorios_categorizados.csv', index=False, sep=',', decimal=',')
 print("Categorização concluída e salva em '../Database/repositorios_categorizados.csv'.")
 
 
