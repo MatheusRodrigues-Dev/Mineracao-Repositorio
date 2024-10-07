@@ -25,6 +25,7 @@ def get_next_token():
 
 # Autenticação na API do GitHub com o primeiro token
 g = Github(tokens[current_token_index])
+
 ux_labels = [
     "Experiência do Cliente",  "Customer Experience",
     "Usabilidade",  "Usability",
