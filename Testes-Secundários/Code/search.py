@@ -134,49 +134,6 @@ def search_ux_repositories():
 
 search_ux_repositories()
 
-
-def filter_repositories(input_csv):
-    # Carregar os repositórios coletados
-    df = pd.read_csv(input_csv)
-
-    # Aplicar os critérios de filtragem
-    filtered_df = df[(df['stars'] >= 5) & (df['forks'] >= 5)]
-    print(f"{len(filtered_df)} repositórios encontrados após a filtragem.")
-
-    # Salvar os repositórios filtrados em um novo CSV na pasta Database
-    filtered_df.to_csv('../Database/repositorios_ux_filtrados.csv', index=False)
-    print("Repositórios filtrados salvos em '../Database/repositorios_ux_filtrados.csv'.")
-
-
-filter_repositories('../Database/repositorios_ux.csv')
-
-
-def categorize_repository(description):
-    keywords_tool = ["tool", "framework", "library", "sdk", "API"]
-    keywords_application = ["application", "app", "MVP", "project"]
-
-    description = str(description).lower()
-
-    for keyword in keywords_tool:
-        if keyword in description:
-            return "Tool"
-
-    for keyword in keywords_application:
-        if keyword in description:
-            return "Application"
-
-    return "Uncategorized"
-
-
-# Aplicar categorização
-df = pd.read_csv('../Database/repositorios_ux_filtrados.csv')
-df['category'] = df['description'].apply(categorize_repository)
-
-# Salvar o CSV categorizado na pasta Database
-df.to_csv('../Database/repositorios_categorizados.csv', index=False, sep=',', decimal=',')
-print("Categorização concluída e salva em '../Database/repositorios_categorizados.csv'.")
-
-
 def plot_stars_distribution(csv_file):
     df = pd.read_csv(csv_file)
 
