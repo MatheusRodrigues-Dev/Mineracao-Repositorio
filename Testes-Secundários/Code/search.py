@@ -9,6 +9,7 @@ import seaborn as sns
 tokens = [
     "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",
     "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",
+    "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"
 ]
 
 # Variável para manter o índice do token atual
