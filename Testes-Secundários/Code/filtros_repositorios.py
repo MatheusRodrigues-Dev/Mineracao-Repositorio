@@ -26,7 +26,7 @@ if df.empty:
     print("Nenhum repositório atende aos critérios de filtro.")
 else:
     # Salvar o DataFrame filtrado
-    df.to_csv('C:/Users/smart/Desktop/Matheus/Codigo-Git/Mineracao-Repositorio/Testes-Secundários/Database/repositorios_ux_filtrados2.csv',
+    df.to_csv('C:/Users/smart/Desktop/Matheus/Codigo-Git/Mineracao-Repositorio/Testes-Secundários/Database/repositorios_ux_filtrados.csv',
               index=False, sep=',', decimal=',')
     print("Repositórios filtrados com sucesso.")
 

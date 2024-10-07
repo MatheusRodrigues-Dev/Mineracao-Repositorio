@@ -133,20 +133,3 @@ def search_ux_repositories():
 
 
 search_ux_repositories()
-
-def plot_stars_distribution(csv_file):
-    df = pd.read_csv(csv_file)
-
-    plt.figure(figsize=(10, 6))
-    sns.histplot(df['stars'], bins=50, kde=True)
-
-    plt.title('Distribuição de Stars nos repositórios de UX')
-    plt.xlabel('Stars')
-    plt.ylabel('Frequência')
-
-    # Salvar o gráfico na pasta Image
-    plt.savefig('../Image/distribuicao_stars.png')
-    plt.show()
-
-
-plot_stars_distribution('../Database/repositorios_categorizados.csv')

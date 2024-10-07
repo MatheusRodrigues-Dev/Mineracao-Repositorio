@@ -1,7 +1,7 @@
 import pandas as pd
 
 # Carregar dados
-df = pd.read_csv('../Database/repositorios_ux_filtrados2.csv')
+df = pd.read_csv('../Database/repositorios_ux_filtrados.csv')
 
 def categorize_repository(description):
     # Palavras-chave para categorizar como 'Tool' e 'Application'
