@@ -1,58 +1,60 @@
 import pandas as pd
+import re
+import unidecode
 
 # Carregar dados
-df = pd.read_csv('../Database/repositorios_ux_filtrados.csv')
+df = pd.read_csv('../Database/Segunda-Busca/repos_with_files.csv')
+
+# Função para categorizar repositório
+
 
 def categorize_repository(description):
-    # Palavras-chave para categorizar como 'Tool' e 'Application'
-    keywords_tool = ["tool", "framework", "library", "sdk", "api"]
-    keywords_application = ["application", "app", "mvp", "project", "software"]
-
-    # Palavras-chave relacionadas a UX (em inglês e português)
-    ux_labels = [
-        "experiência do cliente", "customer experience",
-        "usabilidade", "usability",
-        "interação com o usuário", "user interaction",
-        "design centrado no usuário", "user-centered design",
-        "experiência interativa", "interactive experience",
-        "experiência digital", "digital experience",
-        "interface do usuário", "user interface",
-        "navegabilidade", "navigability",
-        "fluidez de interação", "interaction fluidity",
-        "satisfação do usuário", "user satisfaction"
-    ]
-
-    # Converter a descrição para minúsculas
+    # Normalizar a descrição para minúsculas e remover acentuação
     description = str(description).lower()
+    description = unidecode.unidecode(description)
 
-    # Verificar se a descrição contém alguma palavra-chave de 'Tool'
-    for keyword in keywords_tool:
-        if keyword in description:
-            # Verificar se também contém palavras relacionadas a UX
-            for ux_keyword in ux_labels:
-                if ux_keyword in description:
-                    return "UX Tool"
-            return "Tool"
+    # Palavras-chave para categorização
+    keywords = {
+        "tool": ["tool", "framework", "library", "sdk", "api"],
+        "application": ["application", "app", "mvp", "project", "software"],
+        "ux": [
+            "customer experience", "cx", "user experience",
+            "usability", "ease of use", "usefulness",
+            "user interaction", "human-computer interaction", "hci", "interaction design",
+            "user-centered design", "ucd", "human-centered design", "hcd",
+            "interactive experience", "interactive design", "user engagement",
+            "digital experience", "online experience", "virtual experience",
+            "user interface", "ui", "interface design", "ui design",
+            "navigability", "navigation", "user navigation",
+            "ux", "user experience", "ux design"
+        ]
+    }
 
-    # Verificar se a descrição contém alguma palavra-chave de 'Application'
-    for keyword in keywords_application:
-        if keyword in description:
-            # Verificar se também contém palavras relacionadas a UX
-            for ux_keyword in ux_labels:
-                if ux_keyword in description:
-                    return "UX Application"
-            return "Application"
+    # Verificar palavras-chave de 'Tool'
+    if any(re.search(rf'\b{kw}\b', description) for kw in keywords['tool']):
+        if any(re.search(rf'\b{ux_kw}\b', description) for ux_kw in keywords['ux']):
+            return "UX Tool"
+        return "Tool"
 
-    # Verificar se contém apenas palavras relacionadas a UX (mas não 'Tool' ou 'Application')
-    for ux_keyword in ux_labels:
-        if ux_keyword in description:
-            return "UX Related"
+    # Verificar palavras-chave de 'Application'
+    if any(re.search(rf'\b{kw}\b', description) for kw in keywords['application']):
+        if any(re.search(rf'\b{ux_kw}\b', description) for ux_kw in keywords['ux']):
+            return "UX Application"
+        return "Application"
+
+    # Verificar se é relacionado a UX
+    if any(re.search(rf'\b{ux_kw}\b', description) for ux_kw in keywords['ux']):
+        return "UX Related"
 
     # Se não se enquadrar em nenhuma categoria
     return "Uncategorized"
 
+
+# Aplicar a função de categorização
 df['category'] = df['description'].apply(categorize_repository)
 
 # Salvar o CSV categorizado na pasta Database
-df.to_csv('../Database/repositorios_categorizados.csv', index=False, sep=',', decimal=',')
-print("Categorização concluída e salva em '../Database/repositorios_categorizados.csv'.")
+output_path = '../Database/Segunda-Busca/repositorios_categorizados.csv'
+df.to_csv(output_path, index=False, sep=',', decimal=',')
+
+print(f"Categorização concluída e salva em '{output_path}'.")

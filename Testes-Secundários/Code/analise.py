@@ -4,7 +4,7 @@ import os
 import seaborn as sns
 
 # Load the CSV file
-df = pd.read_csv('../Database/repositorios_categorizados.csv')
+df = pd.read_csv('../Database/Segunda-Busca/repositorios_categorizados.csv')
 
 # Função para contar palavras-chave em todas as descrições
 
@@ -66,25 +66,25 @@ def export_to_csv(df, filename):
 
 
 # Palavras-chave de UX
-ux_labels = [
-    "experiência do cliente", "customer experience",
-    "usabilidade", "usability",
-    "interação com o usuário", "user interaction",
-    "design centrado no usuário", "user-centered design",
-    "experiência interativa", "interactive experience",
-    "experiência digital", "digital experience",
-    "interface do usuário", "user interface",
-    "navegabilidade", "navigability",
-    "fluidez de interação", "interaction fluidity",
-    "satisfação do usuário", "user satisfaction"
-]
+ux_labels = {
+    "Customer Experience", "CX", "User Experience",
+    "Usability", "Ease of Use", "Usefulness",
+    "User Interaction", "Human-Computer Interaction", "HCI", "Interaction Design",
+    "User-Centered Design", "UCD", "Human-Centered Design", "HCD",
+    "Interactive Experience", "Interactive Design", "User Engagement",
+    "Digital Experience", "Online Experience", "Virtual Experience",
+    "User Interface", "UI", "Interface Design", "UI Design",
+    "Navigability", "Navigation", "User Navigation",
+    "UX", "User Experience", "UX Design"
+}
+
 
 # Contar total de palavras-chave
 total_counts = total_keyword_count(df, ux_labels)
 
 # Criar a pasta 'analises' e 'Image/analise' se não existirem
-output_dir = '../Database/analises'
-image_dir = '../Image/analise'
+output_dir = '../Database/Segunda-Busca/analises'
+image_dir = '../Image/Segunda-Busca/analise'
 create_dirs(output_dir, image_dir)
 
 # 1. Distribution of Stars and Forks
@@ -115,10 +115,10 @@ avg_stars_by_lang = df.groupby('language')['stars'].mean()
 avg_forks_by_lang = df.groupby('language')['forks'].mean()
 
 # Filtrar os valores com menos de 100 ocorrências e ordenar do maior para o menor
-avg_stars_by_lang = avg_stars_by_lang[avg_stars_by_lang.index.map(
-    df['language'].value_counts()) >= 30].sort_values(ascending=False)
-avg_forks_by_lang = avg_forks_by_lang[avg_forks_by_lang.index.map(
-    df['language'].value_counts()) >= 30].sort_values(ascending=False)
+# avg_stars_by_lang = avg_stars_by_lang[avg_stars_by_lang.index.map(
+#     df['language'].value_counts()) >= 30].sort_values(ascending=False)
+# avg_forks_by_lang = avg_forks_by_lang[avg_forks_by_lang.index.map(
+#     df['language'].value_counts()) >= 30].sort_values(ascending=False)
 
 # Plotar os gráficos de estrelas
 plot_bar_chart(avg_stars_by_lang.index, avg_stars_by_lang.values, hue=None, title='Average Stars by Language',

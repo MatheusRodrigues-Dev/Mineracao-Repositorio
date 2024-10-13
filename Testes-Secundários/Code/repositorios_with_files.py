@@ -28,7 +28,7 @@ output_dir = '../Database/Segunda-Busca'
 os.makedirs(output_dir, exist_ok=True)
 
 # Carregar o arquivo CSV com os repositórios encontrados
-input_csv = 'repos_found.csv'  # Substitua pelo nome do arquivo com seus repositórios
+input_csv = '../Database/Segunda-Busca/repositories_ux_filtrados.csv'  # Substitua pelo nome do arquivo com seus repositórios
 repos_df = pd.read_csv(input_csv)
 
 # Adicionar colunas para cada arquivo a ser verificado
