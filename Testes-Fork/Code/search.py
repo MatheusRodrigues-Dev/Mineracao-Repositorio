@@ -15,6 +15,20 @@ current_token_index = 0
 csv_dir = '../Database'
 os.makedirs(csv_dir, exist_ok=True)
 
+# Lista de palavras relacionadas a UX
+ux_labels = [
+    "Experiência do Cliente", "Customer Experience",
+    "Usabilidade", "Usability",
+    "Interação com o Usuário", "User Interaction",
+    "Design Centrado no Usuário", "User-Centered Design",
+    "Experiência Interativa", "Interactive Experience",
+    "Experiência Digital", "Digital Experience",
+    "Interface do Usuário", "User Interface",
+    "Navegabilidade", "Navigability",
+    "Fluidez de Interação", "Interaction Fluidity",
+    "Satisfação do Usuário", "User Satisfaction"
+]
+
 
 def get_github_instance():
     """ Retorna a instância do GitHub com o token atual """
@@ -29,7 +43,8 @@ def switch_token():
     print(f"Switching to token {current_token_index + 1}")
 
 
-def analyze_forks_with_rate_limit_handling(repo_name, focus_files=['README.md', 'index.html', 'wireframes', 'ux']):
+def analyze_forks_with_rate_limit_handling(repo_name):
+    """ Analisa os forks de um repositório e identifica commits relacionados a UX """
     global current_token_index
     g = get_github_instance()
 
@@ -48,12 +63,11 @@ def analyze_forks_with_rate_limit_handling(repo_name, focus_files=['README.md', 
                 ux_related_commits = 0
 
                 for commit in commits:
-                    files_changed = commit.files
-                    print('For depois do print:', commit)
-                    # Verificar se algum arquivo está relacionado a UX
-                    for file in files_changed:
-                        if any(ux_term in file.filename.lower() for ux_term in focus_files):
-                            ux_related_commits += 1
+                    commit_message = commit.commit.message.lower()
+
+                    # Verificar se algum termo relacionado a UX está na mensagem do commit
+                    if any(label.lower() in commit_message for label in ux_labels):
+                        ux_related_commits += 1
 
                 ux_contributions.append({
                     'fork': fork.full_name,
@@ -64,14 +78,15 @@ def analyze_forks_with_rate_limit_handling(repo_name, focus_files=['README.md', 
 
         except GithubException as e:
             if e.status == 403 and "rate limit" in str(e).lower():
-                # Se o limite foi atingido, troque de token e aguarde
+                # Se o limite foi atingido, trocar de token e aguardar
                 print(
-                    f"Rate limit exceeded. Switching token and waiting for 60 seconds...")
+                    "Rate limit exceeded. Switching token and waiting for 60 seconds...")
                 switch_token()
-                time.sleep(60)  # Aguarda 60 segundos antes de tentar novamente
+                # Aguardar 60 segundos antes de tentar novamente
+                time.sleep(60)
                 g = get_github_instance()
             else:
-                raise e  # Relevanta a exceção se for outro tipo de erro
+                raise e  # Levantar exceção se for outro tipo de erro
 
         except Exception as e:
             print(f"An error occurred: {e}")
