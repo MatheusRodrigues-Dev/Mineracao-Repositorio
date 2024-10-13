@@ -27,53 +27,17 @@ def get_next_token():
 # Autenticação na API do GitHub com o primeiro token
 g = Github(tokens[current_token_index])
 
-ux_labels = [
-    "Experiência do Cliente",  "Customer Experience",
-    "Usabilidade",  "Usability",
-    "Interação com o Usuário",  "User Interaction",
-    "Design Centrado no Usuário",  "User-Centered Design",
-    "Experiência Interativa",  "Interactive Experience",
-    "Experiência Digital",  "Digital Experience",
-    "Interface do Usuário",  "User Interface",
-    "Navegabilidade",  "Navigability",
-    "Fluidez de Interação",  "Interaction Fluidity",
-    "Satisfação do Usuário",  "User Satisfaction"
-]
-
-# ux_labels = [
-#     # Termos gerais
-#     "ux", "user experience", "usability", "ui", "user interface", "design", "interaction design",
-#     "human factors", "interaction", "visual design", "experience strategy", "service design",
-#     "human-centered", "design principles", "design language", "branding", "identity design",
-
-#     # Wireframes e fluxos
-#     "wireflow", "wireframe", "mockup", "prototype", "user flow", "user journey",
-#     "storybook", "sitemap", "user persona", "user scenario", "task flow",
-#     "information architecture", "interaction flow", "design specification", "style guide",
-
-#     # Pesquisa e análise
-#     "user research", "usability testing", "a11y", "accessibility", "heuristics", "information architecture",
-#     "contextual inquiry", "user interview", "survey", "analytics", "feedback",
-#     "user testing", "A/B testing", "multivariate testing", "user feedback", "net promoter score",
-
-#     # Métodos e ferramentas
-#     "design thinking", "agile", "lean ux", "figma", "sketch", "adobe xd", "prototyping tools",
-#     "co-design", "participatory design", "design systems", "invision", "axure", "justinmind",
-#     "ux writing", "content strategy", "design ops", "service design tools", "ux metrics",
-
-#     # Conceitos relacionados
-#     "human-computer interaction", "user-centered design", "customer experience", "cx", "experience design",
-#     "emotional design", "persuasive design", "gamification", "information design", "service blueprint",
-#     "design innovation", "innovation design", "strategic design", "systemic design", "transitional design",
-
-#     # Variações em inglês
-#     "usercentereddesign", "uxdesign", "uxer", "iux", "uxui", "uiux",
-#     "user experience design", "ux engineering", "interaction designer", "ux architect", "human-centered innovation",
-#     "ux strategy", "ux design process", "ux best practices", "ux design principles", "ux design tools"
-# ]
-
-# ux_labels = ["ux", "user experience", "usability", "wireflow", "wireframe", "MVP"]
-# Função para criar diretórios, caso não existam
+ux_labels = {
+    "Customer Experience", "CX", "User Experience",
+    "Usability", "Ease of Use", "Usefulness",
+    "User Interaction", "Human-Computer Interaction", "HCI", "Interaction Design",
+    "User-Centered Design", "UCD", "Human-Centered Design", "HCD",
+    "Interactive Experience", "Interactive Design", "User Engagement",
+    "Digital Experience", "Online Experience", "Virtual Experience",
+    "User Interface", "UI", "Interface Design", "UI Design",
+    "Navigability", "Navigation", "User Navigation",
+    "UX", "User Experience", "UX Design"
+}
 
 
 def create_directories():
@@ -110,8 +74,21 @@ def search_ux_repositories():
                         "forks": repo.forks_count,
                         "url": repo.html_url,
                         "created_at": repo.created_at,
-                        "updated_at": repo.updated_at
+                        "updated_at": repo.updated_at,
+                        "open_issues": repo.open_issues_count,
+                        "default_branch": repo.default_branch,
+                        "contributors_count": repo.get_contributors().totalCount,
+                        "commits_count": repo.get_commits().totalCount,
+                        "topics": repo.get_topics(),
+                        "watchers": repo.watchers_count,
+                        "size": repo.size,
+                        "has_wiki": repo.has_wiki,
+                        "has_projects": repo.has_projects,
+                        "has_issues": repo.has_issues,
+                        "has_pages": repo.has_pages,
+                        "releases_count": repo.get_releases().totalCount
                     }
+
                     repos_data.append(repo_data)
 
                 break  # Se a busca for bem-sucedida, saia do loop de tentativas
@@ -128,7 +105,7 @@ def search_ux_repositories():
 
     # Remover duplicatas
     df = pd.DataFrame(repos_data).drop_duplicates(subset='name')
-    df.to_csv('../Database/repositorios_ux.csv',
+    df.to_csv('../Database/Segunda-Busca/repositorios_ux.csv',
               index=False, sep=',', decimal=',')
     print("Coleta de repositórios concluída e salva no arquivo '../Database/repositorios_ux.csv'.")
 
