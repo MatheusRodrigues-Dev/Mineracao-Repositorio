@@ -4,7 +4,7 @@ import os
 import seaborn as sns
 
 # Load the CSV file
-df = pd.read_csv('../Database/Segunda-Busca/repositorios_categorizados.csv')
+df = pd.read_csv('../Database/Segunda-Busca/repositories.csv')
 
 # Função para contar palavras-chave em todas as descrições
 

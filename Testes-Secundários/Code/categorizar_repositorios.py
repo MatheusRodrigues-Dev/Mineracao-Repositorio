@@ -1,57 +1,49 @@
 import pandas as pd
-import re
-import unidecode
 
 # Carregar dados
 df = pd.read_csv('../Database/Segunda-Busca/repos_with_files.csv')
 
-# Função para categorizar repositório
+# Definindo palavras-chave
+tool_keywords = ['prototype', 'wireframe', 'ux tool', 'design system', 'testing tool', 'sketch', 'material design', 'roadmap', 'guide', 'skills', 'color scheme', 'color palette', 'visual design']
+application_keywords = ['app', 'mobile', 'website', 'user-friendly', 'UI', 'application', 'UI/UX']
+automation_keywords = ['bot', 'automation', 'whatsapp', 'interaction', 'customer service', 'media sending', 'ai', 'artificial intelligence']
+component_keywords = ['UI Library', 'library', 'component', 'UI component', 'plugin', 'widget', 'ui kit', 'bootstrap', 'react', 'vue', 'angular', 'react native', 'tailwind css', 'unstyled', 'accessible ui']
+
+# Definindo pesos para as palavras-chave
+keyword_weights = {
+    'Outra Classificação': 2,
+    'Ferramenta UX': 1.5,
+    'Componente UX': 1.2,
+    'Aplicação UX': 1
+}
+
+def classify_repository(description, topics):
+    description = str(description).lower() if pd.notna(description) else ''
+    topics = str(topics).lower() if pd.notna(topics) else ''
+
+    # Calcular pontuações para cada categoria
+    scores = {}
+    for category, keywords in [
+        ('Outra Classificação', automation_keywords),
+        ('Ferramenta UX', tool_keywords),
+        ('Componente UX', component_keywords),
+        ('Aplicação UX', application_keywords)
+    ]:
+        score = sum(1 for word in keywords if word in description or word in topics)
+        scores[category] = score * keyword_weights[category]
+
+    # Determinar a classificação com base na maior pontuação
+    classification = max(scores, key=scores.get)
+
+    return classification
 
 
-def categorize_repository(description):
-    # Normalizar a descrição para minúsculas e remover acentuação
-    description = str(description).lower()
-    description = unidecode.unidecode(description)
+# Aplicar a função de classificação
+df['category'] = df.apply(lambda row: classify_repository(
+    row['description'], row['topics']), axis=1)
 
-    # Palavras-chave para categorização
-    keywords = {
-        "tool": ["tool", "framework", "library", "sdk", "api"],
-        "application": ["application", "app", "mvp", "project", "software"],
-        "ux": [
-            "customer experience", "cx", "user experience",
-            "usability", "ease of use", "usefulness",
-            "user interaction", "human-computer interaction", "hci", "interaction design",
-            "user-centered design", "ucd", "human-centered design", "hcd",
-            "interactive experience", "interactive design", "user engagement",
-            "digital experience", "online experience", "virtual experience",
-            "user interface", "ui", "interface design", "ui design",
-            "navigability", "navigation", "user navigation",
-            "ux", "user experience", "ux design"
-        ]
-    }
-
-    # Verificar palavras-chave de 'Tool'
-    if any(re.search(rf'\b{kw}\b', description) for kw in keywords['tool']):
-        if any(re.search(rf'\b{ux_kw}\b', description) for ux_kw in keywords['ux']):
-            return "UX Tool"
-        return "Tool"
-
-    # Verificar palavras-chave de 'Application'
-    if any(re.search(rf'\b{kw}\b', description) for kw in keywords['application']):
-        if any(re.search(rf'\b{ux_kw}\b', description) for ux_kw in keywords['ux']):
-            return "UX Application"
-        return "Application"
-
-    # Verificar se é relacionado a UX
-    if any(re.search(rf'\b{ux_kw}\b', description) for ux_kw in keywords['ux']):
-        return "UX Related"
-
-    # Se não se enquadrar em nenhuma categoria
-    return "Uncategorized"
-
-
-# Aplicar a função de categorização
-df['category'] = df['description'].apply(categorize_repository)
+df = df[df['category'] != 'Não classificado']
+df = df[df['category'] != 'Outra Classificação']
 
 # Salvar o CSV categorizado na pasta Database
 output_path = '../Database/Segunda-Busca/repositorios_categorizados.csv'
