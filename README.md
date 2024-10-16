@@ -15,6 +15,32 @@ A mineração de repositórios oferece uma maneira de analisar grandes quantidad
 - Extração de insights sobre o impacto de melhorias de UX no desenvolvimento de projetos.
 - Geração de relatórios e visualizações que ajudam a entender como a UX é aplicada em diferentes repositórios.
 
+
+## Ordem de Uso
+
+Para realizar a mineração de repositórios e análise com foco em UX, siga a seguinte ordem de execução dos scripts:
+
+1. **`Search.py`**  
+   Realize a busca inicial de repositórios no GitHub com base nos parâmetros definidos.
+
+2. **`detect_language.py`**  
+   Detecte a linguagem principal de cada repositório para análise posterior.
+
+3. **`filtros_repositórios.py`**  
+   Aplique filtros nos repositórios coletados para refinar o conjunto de dados de acordo com os critérios específicos do projeto.
+
+4. **`repoaitorios_with_files.py`**  
+   Verifique a presença de arquivos específicos (como `package.json`, `webpack.config.js`, entre outros) em cada repositório.
+
+5. **`categorizar_repositórios.py`**  
+   Classifique os repositórios nas categorias: **Ferramenta UX**, **Aplicação UX**, **Componente UX**, ou **Não Classificado**.
+
+6. **`data.py`**  
+   Organize e prepare o dataset final para análise, incluindo a remoção de repositórios não classificados ou irrelevantes.
+
+7. **`analise.py`**  
+   Realize a análise dos dados, com foco em APIs mais mencionadas e nos principais problemas enfrentados pelos desenvolvedores de UX.
+
 # Bibliotecas Utilizadas
 
 Este documento lista todas as bibliotecas utilizadas ao longo das discussões e implementações para a análise de UX em repositórios de código e outras funcionalidades.
