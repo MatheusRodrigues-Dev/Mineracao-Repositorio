@@ -42,11 +42,19 @@ def classify_repository(description, topics):
 df['category'] = df.apply(lambda row: classify_repository(
     row['description'], row['topics']), axis=1)
 
-df = df[df['category'] != 'Não classificado']
-df = df[df['category'] != 'Outra Classificação']
+# Filtrar os repositórios classificados
+non_classified_df = df[df['category'] == 'Não classificado']
+non_classified_df = df[df['category'] == 'Outra Classificação']
+classified_df = df[df['category'] != 'Não classificado']
+classified_df = df[df['category'] != 'Outra Classificação']
 
-# Salvar o CSV categorizado na pasta Database
-output_path = '../Database/Segunda-Busca/repositorios_categorizados.csv'
-df.to_csv(output_path, index=False, sep=',', decimal=',')
+# Salvar os CSVs
+non_classified_output_path = '../Database/Segunda-Busca/repositorios_nao_classificados.csv'
+classified_output_path = '../Database/Segunda-Busca/repositorios_categorizados.csv'
 
-print(f"Categorização concluída e salva em '{output_path}'.")
+non_classified_df.to_csv(non_classified_output_path, index=False, sep=',', decimal=',')
+classified_df.to_csv(classified_output_path, index=False, sep=',', decimal=',')
+
+print(f"Categorização concluída.")
+print(f"Repositórios não classificados salvos em '{non_classified_output_path}'.")
+print(f"Repositórios classificados salvos em '{classified_output_path}'.")
